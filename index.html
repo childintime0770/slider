@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <div class="slider-space">
-        <div class="side-selector"> << </div>
+        <div class="side-selector" id="left"><span><<</span></div>
     
         <div class="slider" id="slider">
-            <img src="./assets/images/Jugg.png" alt="Dota-2 Hero Juggernaut">
+            <img src="./assets/images/Jugg.png" alt="Dota-2 Hero Juggernaut" class="selected-image">
             <img src="./assets/images/Axe.png" alt="Dota-2 Hero Axe">
             <img src="./assets/images/Wind.png" alt="Dota-2 Hero Windrunner">
             <img src="./assets/images/Crystal.png" alt="Dota-2 Hero Crystal-maden">
@@ -20,16 +20,20 @@
             <img src="./assets/images/Bara.png" alt="Dota-2 Hero Spirit-breaker">
         </div>
 
-        <div class="side-selector"> >> </div>
+        <div class="side-selector" id="right"><span>>></span></div>
     </div>  
     <div id="image-selector" class="image-selector">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="active" data-id="0"></div>
+        <div data-id="1"></div>
+        <div data-id="2"></div>
+        <div data-id="3"></div>
+        <div data-id="4"></div>
+        <div data-id="5"></div>
+        <div data-id="6"></div>
     </div>
+
+    <input type="range" id="speed" class="speed-range" value="4250" min="250" max="5000" step="250">
+
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

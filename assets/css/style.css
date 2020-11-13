@@ -1,20 +1,40 @@
-table {
+* {
     margin: 0;
     padding: 0;
 }
 
+body {
+    padding-top: 20px;
+}
+
 .slider-space {
-    width: 820px;
+    width: 779px;
     margin: auto;
 }
 
 .slider-space div {
-    display: inline-flex;
+    display: inline-block;
 }
 
 .side-selector {
     height: 386px;
-    margin: 20px;
+    width: 14px;
+    padding: 2px;
+    margin: 0px 9px;
+    position: relative;
+    border: 1px solid silver;
+    cursor: pointer;
+    color: #555;
+}
+
+.side-selector:hover {
+    box-shadow: 0px 0px 3px #999;
+}
+
+.side-selector span {
+    position: absolute;
+    top: calc(50% - 9px);
+    font-family: monospace;
 }
 
 .slider {
@@ -22,20 +42,24 @@ table {
     height: 386px;
     margin: auto;
     border: 1px solid gold;
-    box-sizing: border-box;
     box-shadow: 0px 0px 7px 3px;
+    vertical-align: top;
 }
 
 .slider img {
     position:absolute;
-    z-index:-1;
     width: 685px;
     height: 386px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.slider .selected-image {
+    opacity: 1;
 }
 
 .image-selector {
-    margin: auto;  
-    max-width: 220px;
+   text-align: center;
 }
 
 .image-selector div {
@@ -44,7 +68,7 @@ table {
     background-color: gold;
     border: gold 1px solid;
     border-radius: 10px;
-    margin: 20px 10px 0px 10px;
+    margin: 10px;
     display: inline-block;
     box-sizing: border-box;
     box-shadow: 0px 0px 2px 0px #25736ba1;  
@@ -54,6 +78,16 @@ table {
 .image-selector div:hover {
     background-color: silver;
     border: 1px solid silver;
+}
+
+.image-selector div.active {
+    background-color: silver;
+    border: 1px solid silver;
+}
+
+.speed-range {
+    display: block;
+    margin: 0 auto;
 }
 
 
