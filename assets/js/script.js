@@ -55,6 +55,15 @@ function calculateRange(){
     return +speedRange.getAttribute("max") - (+speedRange.value) + (+speedRange.getAttribute("min"));
 }
 
+function addButtons() {
+    for(let i = 0; i < sliderDiv.children.length; i++){
+        const button = document.createElement("div");
+        imageSelector.appendChild(button);
+        button.dataset.id = i;
+    }
+
+    imageSelector.children[0].classList.add("active");
+}
 
 // Declaring Listeners
 
@@ -64,7 +73,7 @@ sliderDiv.addEventListener("mouseleave", startInterval);
 imageSelector.addEventListener("click", event => {
     if(event.target !== imageSelector) {
         stopInterval();
-        counter = +event.target.getAttribute("data-id");
+        counter = +event.target.dataset.id - 1;
         changeImage();
         startInterval();
     }
@@ -88,4 +97,6 @@ speedRange.addEventListener("change", () => {
 });
 
 // Run Program
+addButtons();
+
 startInterval();
