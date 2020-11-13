@@ -5,15 +5,24 @@ const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");   
 const speedRange = document.getElementById("speed");
 let speed = calculateRange();
-let counter = 1;
+let counter = 0;
 let myInterval; 
 
 // Declaring Functions
-function changeImage() {
+function changeImage(reverse = false) {
+    if(reverse) {
+        counter--;
+    } else {
+        counter++;
+    }
     
-    // if(counter < 0) {
-    //     counter = sliderDiv.children.length - 1;
-    // }
+    if(counter >= sliderDiv.children.length) {
+        counter = 0;
+    }
+
+    if(counter < 0) {
+        counter = sliderDiv.children.length - 1;
+    }
 
     const selectedImage = document.querySelector(".selected-image");
     if(selectedImage) {
@@ -28,12 +37,6 @@ function changeImage() {
     }
 
     imageSelector.children[counter].classList.add("active");
-
-    counter++;
-    
-    if(counter >= sliderDiv.children.length) {
-        counter = 0;
-    }
 
 }
 
@@ -72,11 +75,10 @@ rightArrow.addEventListener("mouseenter", stopInterval);
 leftArrow.addEventListener("mouseleave", startInterval);
 rightArrow.addEventListener("mouseleave", startInterval);
 
-rightArrow.addEventListener("click", changeImage);
+rightArrow.addEventListener("click", () => changeImage());
 
 leftArrow.addEventListener("click", () => {
-    counter -= 2;
-    changeImage();
+    changeImage(true);
 });
 
 speedRange.addEventListener("change", () => {
