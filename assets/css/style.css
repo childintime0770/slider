@@ -86,9 +86,18 @@ body {
     border: 1px solid silver;
 }
 
-.speed-range {
-    display: block;
-    margin: 0 auto;
+.controls {
+    text-align: center;
+}
+
+.controls span {
+    font-size: 12px;
+    font-family: monospace;
+    color: gray;
+}
+
+.controls input {
+    vertical-align: middle;
 }
 
 .preview-image {
@@ -101,3 +110,28 @@ body {
     box-shadow: rgb(255, 255, 255) 0px 0px 3px;
 }
 
+    
+input[type='range'] {
+    overflow: hidden;
+    width: 120px;
+    -webkit-appearance: none;
+    background-color: lightgray;
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 15px;
+    -webkit-appearance: none;
+    color: lightgray;
+    padding: 1px;
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    width: 13px;
+    -webkit-appearance: none;
+    height: 13px;
+    background: gold;
+    border-radius: 10px;
+    box-shadow: -80px 0 0 80px lightgray;
+  }
