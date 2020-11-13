@@ -91,5 +91,13 @@ body {
     margin: 0 auto;
 }
 
-
+.preview-image {
+    width: 50px;
+    position: absolute;
+    z-index: 2;
+    display: none;
+    border: 1px solid gold;
+    background-color: gold;
+    box-shadow: rgb(255, 255, 255) 0px 0px 3px;
+}
 

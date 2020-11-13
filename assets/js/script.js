@@ -4,6 +4,8 @@ const imageSelector = document.getElementById("image-selector");
 const leftArrow = document.getElementById("left");   
 const rightArrow = document.getElementById("right");   
 const speedRange = document.getElementById("speed");
+const previewImage = document.getElementById("preview-image");
+
 let speed = calculateRange();
 let counter = 0;
 let myInterval; 
@@ -94,6 +96,19 @@ speedRange.addEventListener("change", () => {
     speed = calculateRange();
     stopInterval();
     startInterval();
+});
+
+imageSelector.addEventListener("mouseover", e => {
+    
+    if(e.target !== imageSelector) {
+        previewImage.style.display = "inline-block";
+        previewImage.style.left = e.target.getBoundingClientRect().left - 21 + "px";
+        previewImage.style.top = e.target.getBoundingClientRect().top - 35 + "px";
+        previewImage.setAttribute("src", sliderDiv.children[e.target.dataset.id].getAttribute("src"));
+    } else {
+        previewImage.style.display = "none";
+    }
+    
 });
 
 // Run Program
